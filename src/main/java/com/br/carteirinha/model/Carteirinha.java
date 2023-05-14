@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name = "carteirinha")
 @Getter
 @Setter
-public class Carteirinha {
+public class Carteirinha extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Genero {
+public class Genero extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

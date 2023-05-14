@@ -1,0 +1,23 @@
+ALTER TABLE usuario
+    ADD created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ADD last_modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ADD created_by VARCHAR(50) DEFAULT 'system',
+    ADD last_modified_by VARCHAR(50) DEFAULT 'system';
+
+ALTER TABLE escolaridade
+    ADD created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ADD last_modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ADD created_by VARCHAR(50) DEFAULT 'system',
+    ADD last_modified_by VARCHAR(50) DEFAULT 'system';
+
+ALTER TABLE genero
+    ADD created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ADD last_modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ADD created_by VARCHAR(50) DEFAULT 'system',
+    ADD last_modified_by VARCHAR(50) DEFAULT 'system';
+
+ALTER TABLE carteirinha
+    ADD created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ADD last_modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ADD created_by VARCHAR(50) DEFAULT 'system',
+    ADD last_modified_by VARCHAR(50) DEFAULT 'system';

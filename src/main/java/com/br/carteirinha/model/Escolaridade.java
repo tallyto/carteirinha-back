@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Escolaridade {
+public class Escolaridade extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +19,10 @@ public class Escolaridade {
 
     private String nome;
 
-    public Escolaridade(){}
+    public Escolaridade() {
+    }
 
-    public Escolaridade(String id){
+    public Escolaridade(String id) {
         this.id = Long.parseLong(id);
     }
 
