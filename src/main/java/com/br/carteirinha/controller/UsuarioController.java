@@ -21,11 +21,7 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarPorId(@PathVariable Long id) {
         Optional<Usuario> usuarioOptional = usuarioService.buscarPorId(id);
-        if (usuarioOptional.isPresent()) {
-            return ResponseEntity.ok(usuarioOptional.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return usuarioOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping
@@ -42,7 +38,7 @@ public class UsuarioController {
     public ResponseEntity<Usuario> criar(@RequestBody Usuario usuario) {
         Usuario novoUsuario = usuarioService.salvar(usuario);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(novoUsuario.getId()).toUri();
+            .buildAndExpand(novoUsuario.getId()).toUri();
         return ResponseEntity.created(location).body(novoUsuario);
     }
 
@@ -50,11 +46,7 @@ public class UsuarioController {
     public ResponseEntity<Usuario> atualizar(@PathVariable Long id, @RequestBody Usuario usuario) {
         usuario.setId(id);
         Optional<Usuario> usuarioOptional = Optional.ofNullable(usuarioService.atualizar(usuario));
-        if (usuarioOptional.isPresent()) {
-            return ResponseEntity.ok(usuarioOptional.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return usuarioOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
