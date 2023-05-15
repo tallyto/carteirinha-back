@@ -13,6 +13,12 @@ import java.time.LocalDate;
 @Setter
 public class Usuario extends Auditable {
 
+    public Usuario(){}
+
+    public Usuario(String id){
+        this.id = Long.parseLong(id);
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
